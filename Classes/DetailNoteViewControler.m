@@ -95,7 +95,7 @@
 	
 	// Get the size of the keyboard.
 	NSDictionary* info = [notif userInfo];
-	NSValue* aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey]; 
+	NSValue* aValue = [info objectForKey:UIKeyboardAnimationCurveUserInfoKey]; 
 	CGSize keyboardSize = [aValue CGRectValue].size;
 	
 	//resize the scroll view
@@ -114,7 +114,7 @@
 	
 	
 	NSDictionary* info = [notif userInfo];
-	NSValue* aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
+	NSValue* aValue = [info objectForKey:UIKeyboardAnimationCurveUserInfoKey];
 	CGSize keyboardSize = [aValue CGRectValue].size;
 	CGRect viewFrame = self.view.frame; 
 	viewFrame.size.height += keyboardSize.height;

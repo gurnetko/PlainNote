@@ -7,7 +7,7 @@
 //
 
 #import "syncPlainNote.h"
-#import "JSON/JSON.h";
+#import "JSON/JSON.h"
 
 @implementation syncPlainNote
 
