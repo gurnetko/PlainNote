@@ -7,7 +7,6 @@
 //
 
 #import "PlainNoteAppDelegate.h"
-#import "RootViewController.h"
 
 
 @implementation PlainNoteAppDelegate
@@ -19,27 +18,29 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     // Override point for customization after app launch    
-	
-	[window addSubview:[navigationController view]];
+
+    [window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
-	return YES;
+    return YES;
 }
 
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-	// Save data if appropriate
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    // Save data if appropriate
 }
 
 
 #pragma mark -
 #pragma mark Memory management
 
-- (void)dealloc {
-	[navigationController release];
-	[window release];
-	[super dealloc];
+- (void)dealloc
+{
+    [navigationController release];
+    [window release];
+    [super dealloc];
 }
 
 

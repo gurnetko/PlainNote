@@ -1,7 +1,7 @@
 Feature: Manage notes
   As a user
   I want to be able to create and remove notes
-  In order to know what to do
+  In order to know what to do today
 
 Scenario: Predefiend Notes
   Given the app is running
@@ -25,7 +25,7 @@ Scenario: Delete note
 Scenario: Edit note
   Given I added note "I am ObjC Fan!"
   When I touch "I am ObjC Fan!"
-  And I enter "I am big ObjC Fan!" into the "Note Text"
+  And I enter "I am a big ObjC Fan!" into the "Note Text"
   And I press the "Save" button
   Then I wait to see "Notes List"
-  And I should see "I am big ObjC Fan!"
+  And I should see "I am a big ObjC Fan!"

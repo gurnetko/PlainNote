@@ -15,111 +15,110 @@
 @synthesize Notes, addButtonItem, listTableView, helpButton, syncButton;
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-	
-	self.navigationItem.rightBarButtonItem = self.addButtonItem;
-	
-	
-	[self createEditableCopyOfDatabaseIfNeeded];	
-	
-	//theme info
-//	listTableView.backgroundColor = [UIColor blackColor];
-	
-	// Register for application exiting information so we can save data
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillTerminate:) name:UIApplicationWillTerminateNotification object:nil];
 
-	NSString *documentDirectory = [self applicationDocumentsDirectory];
-	NSString *path = [documentDirectory stringByAppendingPathComponent:@"NotesList.plist"];
-	
-	//NSString *path = [[NSBundle mainBundle] pathForResource:@"NotesList" ofType:@"plist"];
-	NSMutableArray *tmpArray = [[NSMutableArray alloc] initWithContentsOfFile:path];
-	self.Notes = tmpArray;
-	[tmpArray release];
+    self.navigationItem.rightBarButtonItem = self.addButtonItem;
+    [self createEditableCopyOfDatabaseIfNeeded];
 
-	
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    // Register for application exiting information so we can save data
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillTerminate:) name:UIApplicationWillTerminateNotification object:nil];
+
+    NSString *documentDirectory = [self applicationDocumentsDirectory];
+    NSString *path = [documentDirectory stringByAppendingPathComponent:@"NotesList.plist"];
+
+    //NSString *path = [[NSBundle mainBundle] pathForResource:@"NotesList" ofType:@"plist"];
+    NSMutableArray *tmpArray = [[NSMutableArray alloc] initWithContentsOfFile:path];
+    self.Notes = tmpArray;
+    [tmpArray release];
+
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+
+    self.tableView.accessibilityIdentifier = @"Notes List";
+    self.addButtonItem.accessibilityLabel = @"Add";
+    self.helpButton.accessibilityLabel = @"Help";
+    self.syncButton.accessibilityLabel = @"Sync";
 }
 
-- (IBAction) addButtonPressed: (id) sender { 
-//	NSLog(@"Add button pressed!");
-	
-	DetailNoteViewControler *noteDetailViewControler = [[DetailNoteViewControler alloc] initWithNibName:@"DetailNoteViewControler" bundle:nil];
-	
-	// this adds a navication bar to the noteDetailViewController
-	UINavigationController *addNavCon = [[UINavigationController alloc] initWithRootViewController:noteDetailViewControler];
-	noteDetailViewControler.noteArray = self.Notes;
+- (IBAction)addButtonPressed:(id)sender
+{
+    DetailNoteViewControler *noteDetailViewControler = [[DetailNoteViewControler alloc] initWithNibName:@"DetailNoteViewControler" bundle:nil];
 
-	[self presentModalViewController:addNavCon animated:YES];
-	
-	[addNavCon release];
-	[noteDetailViewControler release];
-	
-	
+    // this adds a navication bar to the noteDetailViewController
+    UINavigationController *addNavCon = [[UINavigationController alloc] initWithRootViewController:noteDetailViewControler];
+    noteDetailViewControler.noteArray = self.Notes;
+
+    [self presentModalViewController:addNavCon animated:YES];
+
+    [addNavCon release];
+    [noteDetailViewControler release];
+
+
 }
 
-- (IBAction) helpButtonPressed: (id) sender { 
-	WebViewController *webViewVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
-	
-	[self.navigationController pushViewController:webViewVC animated:YES];
-	
-	
-	[webViewVC release];
-	
+- (IBAction)helpButtonPressed:(id)sender
+{
+    WebViewController *webViewVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
+
+    [self.navigationController pushViewController:webViewVC animated:YES];
+
+
+    [webViewVC release];
+
 }
 
-- (IBAction) syncButtonPressed: (id) sender { 
-	self.navigationItem.prompt = @"Syncing with host";
-	[self.view setNeedsDisplay];
+- (IBAction)syncButtonPressed:(id)sender
+{
+    self.navigationItem.prompt = @"Syncing with host";
+    [self.view setNeedsDisplay];
 
-	syncPlainNote *pnSync = [[syncPlainNote alloc] init];
-	
-	NSString *myUUID = [pnSync GetUUID];
-	
-	NSDictionary *loginResponse = [pnSync loginWithUsername:@"user" andPassword:@"pass" andUUID:myUUID];
-	
-	
-	
-	// we need to loop through all the notes and upload them
-	// the server should ignore anything newer on the server side
-	
-	for (id thisNote in Notes) {
-		
-		NSString *content =[thisNote objectForKey:@"Text"];
-		NSString *account_id = [loginResponse objectForKey:@"account_id"];
-	
-		
-		//we have to urlencode the string
-		NSString * encodedContent = (NSString *)CFURLCreateStringByAddingPercentEscapes(
-																						NULL,
-																						(CFStringRef)content,
-																						NULL,
-																						(CFStringRef)@"!*'();:@&=+$,/?%#[]",
-																						kCFStringEncodingUTF8 );
-		
-	//	NSLog(@"Sending %@",content);
-		NSInteger retStatus = [pnSync postNoteWithAccountID:account_id 
-												andDeviceID:myUUID 
-												  andPostID:@"fdsa-fdsa-32fds-32fdsa" 
-												 andContent:encodedContent];
-	
-		
-	}
-	
-	
-	[syncPlainNote release];
-	
-	self.navigationItem.prompt = nil;
+    syncPlainNote *pnSync = [[syncPlainNote alloc] init];
+
+    NSString *myUUID = [pnSync GetUUID];
+
+    NSDictionary *loginResponse = [pnSync loginWithUsername:@"user" andPassword:@"pass" andUUID:myUUID];
+
+
+
+    // we need to loop through all the notes and upload them
+    // the server should ignore anything newer on the server side
+
+    for (id thisNote in Notes) {
+
+        NSString *content = [thisNote objectForKey:@"Text"];
+        NSString *account_id = [loginResponse objectForKey:@"account_id"];
+
+
+        //we have to urlencode the string
+        NSString *encodedContent = (NSString *) CFURLCreateStringByAddingPercentEscapes(
+                NULL,
+                (CFStringRef) content,
+                NULL,
+                (CFStringRef) @"!*'();:@&=+$,/?%#[]",
+                kCFStringEncodingUTF8);
+
+        //	NSLog(@"Sending %@",content);
+        NSInteger retStatus = [pnSync postNoteWithAccountID:account_id
+                                                andDeviceID:myUUID
+                                                  andPostID:@"fdsa-fdsa-32fds-32fdsa"
+                                                 andContent:encodedContent];
+
+
+    }
+
+
+    [syncPlainNote release];
+
+    self.navigationItem.prompt = nil;
 }
 
-
-
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
-	
-	// important to reload data when view is redrawn
-	[self.tableView reloadData];
+
+    // important to reload data when view is redrawn
+    [self.tableView reloadData];
 }
 
 /*
@@ -146,94 +145,93 @@
 }
  */
 
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
+
+    // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-	// Release anything that can be recreated in viewDidLoad or on demand.
-	// e.g. self.myOutlet = nil;
+- (void)viewDidUnload
+{
+    // Release anything that can be recreated in viewDidLoad or on demand.
+    // e.g. self.myOutlet = nil;
 }
 
 
 #pragma mark Table view methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-
 // Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return [self.Notes count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.Notes count];
 }
 
-
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-       // cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        // cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-	//theme info
-	//cell.contentView.clipsToBounds = YES;
+
+    //theme info
+    //cell.contentView.clipsToBounds = YES;
 //	[cell.contentView setBackgroundColor:[UIColor darkGrayColor]];
 //	[self.tableView reloadData];		
-	// Configure the cell.
-	//cell.textLabel.backgroundColor = [UIColor darkGrayColor];
-	cell.textLabel.text = [[self.Notes objectAtIndex:indexPath.row ]objectForKey:@"Text"];
+    // Configure the cell.
+    //cell.textLabel.backgroundColor = [UIColor darkGrayColor];
+    cell.textLabel.text = [[self.Notes objectAtIndex:indexPath.row] objectForKey:@"Text"];
 
-	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-	[dateFormat setDateFormat: @"yyyy-MM-dd HH:mm:ss zzz"];
-	
-	NSDate *dateTmp;
-	dateTmp = [[self.Notes objectAtIndex:indexPath.row ]objectForKey:@"CDate"];
-	cell.detailTextLabel.text = [dateFormat stringFromDate: dateTmp];
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
 
-	
-	[dateFormat release];
+    NSDate *dateTmp;
+    dateTmp = [[self.Notes objectAtIndex:indexPath.row] objectForKey:@"CDate"];
+    cell.detailTextLabel.text = [dateFormat stringFromDate:dateTmp];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+
+    [dateFormat release];
 //	[dateTmp release];
 
-	
-	
-	//cell.text.label = cell.text.label + [[self.Notes objectAtIndex:indexPath.row]objectForKey:@"CreationDate"];
-		
+
+
+    //cell.text.label = cell.text.label + [[self.Notes objectAtIndex:indexPath.row]objectForKey:@"CreationDate"];
+
     return cell;
 }
 
-
-
-
 // Override to support row selection in the table view.
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
 
     // Navigation logic may go here -- for example, create and push another view controller.
-	
-	DetailNoteViewControler *noteDetailViewControler = [[DetailNoteViewControler alloc] initWithNibName:@"DetailNoteViewControler" bundle:nil];
-	//[self.navigationController pushViewController:noteDetailViewControler animated:YES];
-	
-	// this adds a navication bar to the noteDetailViewController
-	UINavigationController *addNavCon = [[UINavigationController alloc] initWithRootViewController:noteDetailViewControler];	
-	noteDetailViewControler.Notedict = [self.Notes objectAtIndex:indexPath.row];
-	noteDetailViewControler.noteArray = self.Notes;
-	
-	[self presentModalViewController:addNavCon animated:YES];
-	
-	[addNavCon release];
-	[noteDetailViewControler release];
-	
+
+    DetailNoteViewControler *noteDetailViewControler = [[DetailNoteViewControler alloc] initWithNibName:@"DetailNoteViewControler" bundle:nil];
+    //[self.navigationController pushViewController:noteDetailViewControler animated:YES];
+
+    // this adds a navication bar to the noteDetailViewController
+    UINavigationController *addNavCon = [[UINavigationController alloc] initWithRootViewController:noteDetailViewControler];
+    noteDetailViewControler.noteDict = [self.Notes objectAtIndex:indexPath.row];
+    noteDetailViewControler.noteArray = self.Notes;
+
+    [self presentModalViewController:addNavCon animated:YES];
+
+    [addNavCon release];
+    [noteDetailViewControler release];
+
 }
-
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -246,18 +244,19 @@
 
 
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source.
-		// Delete the row from the data source.
-		[self.Notes removeObjectAtIndex:indexPath.row];
+        // Delete the row from the data source.
+        [self.Notes removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-		
-    }   
+
+    }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
+    }
 }
 
 
@@ -277,41 +276,45 @@
 }
 */
 
-- (void)createEditableCopyOfDatabaseIfNeeded {
-	// First, test for existence - we don't want to wipe out a user's DB
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSString *documentDirectory = [self applicationDocumentsDirectory];
-	NSString *writableDBPath = [documentDirectory stringByAppendingPathComponent:@"NotesList.plist"];
-	
-	BOOL dbexits = [fileManager fileExistsAtPath:writableDBPath];
-	if (!dbexits) {
-		// The writable database does not exist, so copy the default to the appropriate location.
-		NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"NotesList.plist"];
-		
-		NSError *error;
-		BOOL success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
-		if (!success) {
-			NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
-		}
-	}
+- (void)createEditableCopyOfDatabaseIfNeeded
+{
+    // First, test for existence - we don't want to wipe out a user's DB
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentDirectory = [self applicationDocumentsDirectory];
+    NSString *writableDBPath = [documentDirectory stringByAppendingPathComponent:@"NotesList.plist"];
+
+    BOOL dbexits = [fileManager fileExistsAtPath:writableDBPath];
+    if (!dbexits) {
+        // The writable database does not exist, so copy the default to the appropriate location.
+        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"NotesList.plist"];
+
+        NSError *error;
+        BOOL success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
+        if (!success) {
+            NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
+        }
+    }
 }
 
-- (NSString *)applicationDocumentsDirectory {
-	return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+- (NSString *)applicationDocumentsDirectory
+{
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
--(void) applicationWillTerminate: (NSNotification *)notification {
-	
+- (void)applicationWillTerminate:(NSNotification *)notification
+{
+
 //	NSLog(@"got app will terminate");
-	NSString *documentDirectory = [self applicationDocumentsDirectory];
-	NSString *path = [documentDirectory stringByAppendingPathComponent:@"NotesList.plist"];
-	
-	[self.Notes writeToFile:path atomically:YES];
+    NSString *documentDirectory = [self applicationDocumentsDirectory];
+    NSString *path = [documentDirectory stringByAppendingPathComponent:@"NotesList.plist"];
+
+    [self.Notes writeToFile:path atomically:YES];
 }
 
-- (void)dealloc {
-	[Notes release];
-	[addButtonItem release];
+- (void)dealloc
+{
+    [Notes release];
+    [addButtonItem release];
     [super dealloc];
 }
 

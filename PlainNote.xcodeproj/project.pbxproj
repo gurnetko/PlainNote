@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05c0610bdcab4b0c95ef611c /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		071C609111375CAE00651FCF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071C608F11375CAE00651FCF /* WebViewController.m */; };
 		071C609211375CAE00651FCF /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 071C609011375CAE00651FCF /* WebViewController.xib */; };
 		071C60B51137612E00651FCF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 071C60B41137612E00651FCF /* index.html */; };
@@ -24,15 +25,42 @@
 		07EDCEFA1111E01D00340F08 /* NotesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07EDCEF91111E01D00340F08 /* NotesList.plist */; };
 		07EDCF0B1111E1A500340F08 /* DetailNoteViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EDCF091111E1A500340F08 /* DetailNoteViewControler.m */; };
 		07EDCF0C1111E1A500340F08 /* DetailNoteViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07EDCF0A1111E1A500340F08 /* DetailNoteViewControler.xib */; };
+		0c9df79dcb330a30ea998a4e /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5f0e34ffba19250fc774a1bb /* CFNetwork.framework */; };
+		1c198bc4110886b30ca9511f /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 07E121BC1131C0D8007CA860 /* Settings.bundle */; };
 		1D3623260D0F684500981E51 /* PlainNoteAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* PlainNoteAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2107c68a3f136f7a09c11794 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FC09E16FA6C8C00D9427C /* Default-568h@2x.png */; };
+		23ad477cb668c43dc3add360 /* calabash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 537cc9b2a652f7f9053cf727 /* calabash.framework */; };
+		2858caf81b79e07ed037f447 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 073510631135841F006E7F15 /* SBJSON.m */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+		36b02939863f592c02efc5ac /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 073510691135841F006E7F15 /* SBJsonWriter.m */; };
+		3b1204bf694a78b665bc32c4 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 0735105F1135841F006E7F15 /* NSObject+SBJSON.m */; };
+		3c037aae71c2ed3fb5f9db42 /* NotesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07EDCEF91111E01D00340F08 /* NotesList.plist */; };
+		4b3f4b25e6f06136266b4c16 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 071C60B41137612E00651FCF /* index.html */; };
+		5014d832799ea453dee4996e /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		53c754fabcc0da8f64bc4ad1 /* syncPlainNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 071C8C441138BDC8007C241B /* syncPlainNote.m */; };
+		71a8da5635e8c6d2c96b0a83 /* PlainNoteAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* PlainNoteAppDelegate.m */; };
+		727ceac506242861a32310fe /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 073510651135841F006E7F15 /* SBJsonBase.m */; };
+		755a7466d06ef30db9d69495 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 071C609011375CAE00651FCF /* WebViewController.xib */; };
+		7628b5021224ac228cb6b3a5 /* instaPaperLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E1216A1130B3C6007CA860 /* instaPaperLib.m */; };
 		B42FC09F16FA6C8C00D9427C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FC09E16FA6C8C00D9427C /* Default-568h@2x.png */; };
+		c9efd9acadd654b90ba29cc7 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		cb71c2e07034aef8ddc0eb01 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AB17A1111E729300294A0C /* MessageUI.framework */; };
+		d7a5c7aa53794d8dca8502a7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		e2f4a7ea1c45974c26d1820d /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		e32da2bc28777c20ee829759 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 07E2738A1113C523009E1A39 /* Icon.png */; };
+		e6bb65d8fa8bf97d6a7b6bcc /* DetailNoteViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EDCF091111E1A500340F08 /* DetailNoteViewControler.m */; };
+		e874a1fb28a8f0b75055f8a7 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+		ef21626046d23ba9c5fc13e2 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 073510611135841F006E7F15 /* NSString+SBJSON.m */; };
+		f12d78e3a31d82dd5f588032 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071C608F11375CAE00651FCF /* WebViewController.m */; };
+		f3159aede2eb8e4abfe26357 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 073510671135841F006E7F15 /* SBJsonParser.m */; };
+		fb5c175627955149565c3143 /* DetailNoteViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07EDCF0A1111E1A500340F08 /* DetailNoteViewControler.xib */; };
+		febfec7d5292d8be97af78e6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,8 +104,11 @@
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		537cc9b2a652f7f9053cf727 /* calabash.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; path = calabash.framework; sourceTree = "<group>"; };
+		5f0e34ffba19250fc774a1bb /* CFNetwork.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* PlainNote-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PlainNote-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		B42FC09E16FA6C8C00D9427C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B49C512A16FCCEAF00A86FDA /* PlainNote-cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlainNote-cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +120,19 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				07AB17A2111E729300294A0C /* MessageUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3caf597238b58d6ffcdf1585 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				d7a5c7aa53794d8dca8502a7 /* Foundation.framework in Frameworks */,
+				e2f4a7ea1c45974c26d1820d /* UIKit.framework in Frameworks */,
+				05c0610bdcab4b0c95ef611c /* CoreGraphics.framework in Frameworks */,
+				cb71c2e07034aef8ddc0eb01 /* MessageUI.framework in Frameworks */,
+				0c9df79dcb330a30ea998a4e /* CFNetwork.framework in Frameworks */,
+				23ad477cb668c43dc3add360 /* calabash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* PlainNote.app */,
+				B49C512A16FCCEAF00A86FDA /* PlainNote-cal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +233,8 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 				07AB17A1111E729300294A0C /* MessageUI.framework */,
+				5f0e34ffba19250fc774a1bb /* CFNetwork.framework */,
+				537cc9b2a652f7f9053cf727 /* calabash.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -195,6 +242,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		076f0d82326d6bc9bae458c5 /* PlainNote-cal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2466366c1909211f9102d44f /* Build configuration list for PBXNativeTarget "PlainNote-cal" */;
+			buildPhases = (
+				be40c1942c7e78883d5e76e1 /* Resources */,
+				7bdc0f264c7f6c8414219887 /* Sources */,
+				3caf597238b58d6ffcdf1585 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PlainNote-cal";
+			productName = "PlainNote-cal";
+			productReference = B49C512A16FCCEAF00A86FDA /* PlainNote-cal.app */;
+			productType = "com.apple.product-type.application";
+		};
 		1D6058900D05DD3D006BFB54 /* PlainNote */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "PlainNote" */;
@@ -233,6 +297,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* PlainNote */,
+				076f0d82326d6bc9bae458c5 /* PlainNote-cal */,
 			);
 		};
 /* End PBXProject section */
@@ -251,6 +316,22 @@
 				071C609211375CAE00651FCF /* WebViewController.xib in Resources */,
 				071C60B51137612E00651FCF /* index.html in Resources */,
 				B42FC09F16FA6C8C00D9427C /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		be40c1942c7e78883d5e76e1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				c9efd9acadd654b90ba29cc7 /* MainWindow.xib in Resources */,
+				e874a1fb28a8f0b75055f8a7 /* RootViewController.xib in Resources */,
+				3c037aae71c2ed3fb5f9db42 /* NotesList.plist in Resources */,
+				fb5c175627955149565c3143 /* DetailNoteViewControler.xib in Resources */,
+				e32da2bc28777c20ee829759 /* Icon.png in Resources */,
+				1c198bc4110886b30ca9511f /* Settings.bundle in Resources */,
+				755a7466d06ef30db9d69495 /* WebViewController.xib in Resources */,
+				4b3f4b25e6f06136266b4c16 /* index.html in Resources */,
+				2107c68a3f136f7a09c11794 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +355,26 @@
 				0735106F1135841F006E7F15 /* SBJsonWriter.m in Sources */,
 				071C609111375CAE00651FCF /* WebViewController.m in Sources */,
 				071C8C451138BDC8007C241B /* syncPlainNote.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7bdc0f264c7f6c8414219887 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				febfec7d5292d8be97af78e6 /* main.m in Sources */,
+				71a8da5635e8c6d2c96b0a83 /* PlainNoteAppDelegate.m in Sources */,
+				5014d832799ea453dee4996e /* RootViewController.m in Sources */,
+				e6bb65d8fa8bf97d6a7b6bcc /* DetailNoteViewControler.m in Sources */,
+				7628b5021224ac228cb6b3a5 /* instaPaperLib.m in Sources */,
+				3b1204bf694a78b665bc32c4 /* NSObject+SBJSON.m in Sources */,
+				ef21626046d23ba9c5fc13e2 /* NSString+SBJSON.m in Sources */,
+				2858caf81b79e07ed037f447 /* SBJSON.m in Sources */,
+				727ceac506242861a32310fe /* SBJsonBase.m in Sources */,
+				f3159aede2eb8e4abfe26357 /* SBJsonParser.m in Sources */,
+				36b02939863f592c02efc5ac /* SBJsonWriter.m in Sources */,
+				f12d78e3a31d82dd5f588032 /* WebViewController.m in Sources */,
+				53c754fabcc0da8f64bc4ad1 /* syncPlainNote.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +411,32 @@
 			};
 			name = Distribution;
 		};
+		0c13d2424d9337993d515b97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PlainNote_Prefix.pch;
+				INFOPLIST_FILE = "PlainNote-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(SRCROOT)/calabash.framework/calabash\"",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "PlainNote-cal";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -336,6 +463,56 @@
 				INFOPLIST_FILE = "PlainNote-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = PlainNote;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2aa4b6e1344eba0cd1676211 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PlainNote_Prefix.pch;
+				INFOPLIST_FILE = "PlainNote-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(SRCROOT)/calabash.framework/calabash\"",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "PlainNote-cal";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		4e6d9fc98316050ea660a7f8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PlainNote_Prefix.pch;
+				INFOPLIST_FILE = "PlainNote-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(SRCROOT)/calabash.framework/calabash\"",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "PlainNote-cal";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -378,6 +555,16 @@
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
 				07867DA81121ECF70017FBFD /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2466366c1909211f9102d44f /* Build configuration list for PBXNativeTarget "PlainNote-cal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0c13d2424d9337993d515b97 /* Debug */,
+				4e6d9fc98316050ea660a7f8 /* Release */,
+				2aa4b6e1344eba0cd1676211 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
