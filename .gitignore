@@ -1,2 +1,6 @@
 DerivedData/
 *.bak
+.idea/
+*.xcuserdatad
+.irb-history
+Gemfile.lock
